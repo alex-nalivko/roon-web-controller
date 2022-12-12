@@ -3,9 +3,9 @@
   "version": "2.0.0-alpha.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development nodemon -w backend/app.js backend/app.js & vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve & NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=development nodemon -w backend/app.js backend/app.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
+    "lint": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service lint",
     "start": "node backend/app.js"
   },
   "dependencies": {

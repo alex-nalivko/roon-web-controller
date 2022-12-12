@@ -103,7 +103,11 @@ export default new Vuex.Store({
       let zone_list = JSON.parse(message);
       commit("SET_zone_list", zone_list);
       if (!zone_list[state.settings.current_zone_id]) {
-        commit("SET_current_zone_id", "");
+        if (state.settings.current_zone_id == "" && Object.keys(zone_list).length == 1) {
+          commit("SET_current_zone_id", Object.keys(zone_list)[0]);
+        } else {
+          commit("SET_current_zone_id", "");
+        }
       }
     },
     SOCKET_queue_list: ({ commit }, message) => {
